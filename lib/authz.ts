@@ -103,3 +103,6 @@ export async function assertCanAccessStudent(user: CurrentUser, studentId: strin
 export async function assertCanAccessClass(user: CurrentUser, classId: string) {
   if (!(await canAccessClass(user, classId))) throw new NotFoundError("Class not found");
 }
+export function assertAdmin(user: CurrentUser) {
+  if (user.role !== "ADMIN") throw new ForbiddenError();
+}

@@ -18,3 +18,9 @@ export class NotFoundError extends Error {
     this.name = "NotFoundError";
   }
 }
+export class ConflictError extends Error {
+  constructor(message = "This record already exists") {
+    super(message);
+    this.name = "ConflictError";
+  }
+}

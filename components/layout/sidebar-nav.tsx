@@ -2,11 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, type LucideIcon } from "lucide-react";
+import { GraduationCap, LayoutDashboard, UserRound, Users, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { NavItem } from "@/components/layout/nav-config";
 
-const ICONS: Record<string, LucideIcon> = { "layout-dashboard": LayoutDashboard };
+const ICONS: Record<string, LucideIcon> = {
+  "layout-dashboard": LayoutDashboard,
+  "graduation-cap": GraduationCap,
+  users: Users,
+  "user-round": UserRound,
+};
 
 export function SidebarNav({ items, orientation = "vertical" }: { items: NavItem[]; orientation?: "vertical" | "horizontal" }) {
   const pathname = usePathname();

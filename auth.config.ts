@@ -1,5 +1,5 @@
 import type { NextAuthConfig } from "next-auth";
-import { ROLE_HOME, isRole, roleForPath } from "@/lib/roles";
+import { ROLE_HOME, isRole, roleForPath, type Role } from "@/lib/roles";
 
 const PUBLIC_PATHS = ["/login", "/forgot-password", "/reset-password"];
 const PUBLIC_API_PREFIXES = ["/api/auth", "/api/health"];
@@ -48,8 +48,8 @@ export const authConfig = {
       return token;
     },
     session({ session, token }) {
-      session.user.id = token.id;
-      session.user.role = token.role;
+      session.user.id = token.id as string;
+      session.user.role = token.role as Role;
       return session;
     },
   },
